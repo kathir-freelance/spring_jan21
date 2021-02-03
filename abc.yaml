@@ -1,4 +1,20 @@
-apiVersion: v1
-kind: Namespace
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: hotel
+  namespace: hotel
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hotel
+  template:
+    metadata:
+      labels:
+        app: hotel
+    spec:
+      containers:
+      - name: hotel
+        image: pradeepch82/cafe:1.1
+        ports:
+        - containerPort: 80
