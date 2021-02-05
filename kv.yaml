@@ -23,16 +23,3 @@ spec:
       volumes:
         - name: data-volume
           emptyDir: {}
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: kvstore-service
-spec:
-  type: NodePort
-  ports:
-    - name: http
-      port: 8080
-      protocol: TCP
-  selector:
-    app: kvstore
